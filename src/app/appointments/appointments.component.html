@@ -1,0 +1,20 @@
+<div class ="mb=50!">
+
+  <h2>Select Your Preferred Appointment Time Below!</h2>
+
+</div>
+<ng-container class= "ngb-datepicker" ml=200>
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+<hr/>
+
+<button class="bt-appnt n btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+<button class="btn-appnt btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">Select Current Month</button>
+
+
+<hr/>
+<!--
+<pre>Month: {{ date.month }}.{{ date.year }}</pre>
+<pre>Model: {{ model | json }}</pre> -->
+</ng-container>

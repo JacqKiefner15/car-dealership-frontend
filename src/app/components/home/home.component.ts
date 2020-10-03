@@ -1,7 +1,6 @@
-import { LocalStorageService } from './../shared/services/local-storage.service';
-import { Movie } from './../shared/services/models/movie';
-
-import { MovieService } from './../shared/services/movie.service';
+import { CarService } from './../../shared/services/car.service';
+import { Car } from './../../shared/services/models/cars';
+import { LocalStorageService } from './../../shared/services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -12,15 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  movies: Movie[] = []
+  cars: Car[] = []
 
   constructor(
-    private movieService: MovieService,
+    private carService: CarService,
     private storageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
-    this.retreiveAllMovies()
+    this.retreiveAllCars()
     this.setMyEmailInStorage()
 
   }
@@ -29,10 +28,10 @@ export class HomeComponent implements OnInit {
     this.storageService.setItem('myEmail', 'jacq@email.com')
   }
 
-  retreiveAllMovies() {
-    this.movieService.getAllMovies().subscribe(movies => {
-      if (movies) {
-        this.movies = movies
+  retreiveAllCars() {
+    this.carService.getAllCars().subscribe(incomingCars => {
+      if (incomingCars) {
+        this.cars = incomingCars
       }
     debugger
     }, error => {

@@ -1,10 +1,14 @@
+import { EmailService } from './email.service';
+
+
 import { AuthorizationHeaderService } from './shared/services/authorization-header.service';
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { UserService } from './shared/services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MovieService } from './shared/services/movie.service';
+import { CarService } from './shared/services/car.service';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,11 +21,15 @@ import {
 from '@fortawesome/free-solid-svg-icons';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { MovieCardComponent } from './home/movie-card/movie-card.component';
+import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { from } from 'rxjs';
+
+
+
 
 
 
@@ -32,9 +40,15 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    MovieCardComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    // CarComponent,
+    AppointmentsComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -43,14 +57,15 @@ import { LoginComponent } from './login/login.component';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
 
 
   ],
   providers: [
-    MovieService,
+    CarService,
     UserService,
     LocalStorageService,
+    EmailService,
     { provide: HTTP_INTERCEPTORS,
     useClass: AuthorizationHeaderService,
   multi: true
