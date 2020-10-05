@@ -3,9 +3,11 @@ import { EmailService } from './../email.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { async } from '@angular/core/testing';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { ReactiveFormsModule } from '@angular/forms'
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -14,13 +16,22 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit, OnDestroy {
-  form: FormGroup
+  name = new FormControl('')
+  contactForm: FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    need: new FormControl(''),
+    comment: new FormControl(''),
+
+  })
   formValues: any
   submitting = false
   hasError = false
   errorMsg: string
   currentUser: any
   private subs = new Subscription()
+
   emailForm: EmailData[] = [];
 
   constructor(
@@ -30,53 +41,73 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   ) { }
   ngOnInit(): void {
+    this.createFormControls;
     this.createForm();
   }
 
-  createForm() {
-    this.form = this.formValues
+  createFormControls() {
+    this.formValues = {
+      firstName: ['', Validators.compose([Validators.required])],
+      lastName: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required])],
+      need: ['', Validators.compose([Validators.required])],
+      comment: ['', Validators.compose([Validators.required,])],
+    }
   }
-  // convenience getter_ for form controls
 
+  createForm() {
+    this.contactForm = this.fb.group(this.formValues)
+  }
+  get f() {
+    if (this.contactForm && this.contactForm.controls)
+ {
+      return this.contactForm.controls
+ }  }
 
   submitForm() {
     this.hasError = false
     this.submitting = true
-    if (this.form.invalid) {
+    if (this.contactForm.invalid) {
       this.hasError = true
       this.submitting = false
     }
-      const form = this.form.value
+      const form = this.contactForm.value
       const params = {
-        first_name: form.any,
-        last_name: form.any,
+        first_name: form.firstName,
+        last_name: form.lastName,
         email: form.email,
-        need: form.any,
-        message: form.any,
-
+        need: form.need,
+        message: form.message,
       }
     }
 
 
 
-//    onSubmit( email, first_name, last_name, need, comment) {
-//      this.emailService.sendEmail({
-//        from: `Mailgun Sandbox
-//        <postmaster@sandboxyourapikeysetXXXXXX.mailgun.org>`,
-//        email,
-//        first_name,
-//        last_name,
-//        need,
-//        comment,
-//  })
-//      .subscribe(
-//        () => {},
-//        err => console.log(err)
-//      )
-//    }
-//   cancelForm() {
-//     this.form.reset()
-//   }
+   onSubmit() {
+     console.log('on submit');
+     if (this.contactForm.invalid) {
+      this.hasError = true
+      this.submitting = false
+      console.log('invalid');
+    }
+     const form = this.contactForm.value
+     const params = {
+      first_name: form.firstName,
+      last_name: form.lastName,
+      email: form.email,
+      need: form.need,
+      message: form.messsage
+     }
+     this.emailService.sendEmail(params)
+     .subscribe(
+       () => {},
+       err => console.log("this err",err)
+     )
+   }
+
+  cancelForm() {
+    this.contactForm.reset()
+  }
 
    ngOnDestroy(): void {
       this.subs.unsubscribe()

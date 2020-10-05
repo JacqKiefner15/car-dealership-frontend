@@ -28,8 +28,6 @@ export class SignupComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.createFormControls()
     this.createForm()
-
-
   }
 
   createFormControls() {
@@ -86,7 +84,6 @@ export class SignupComponent implements OnInit, OnDestroy {
             }
            })
       )
-
 
   }
 

@@ -1,4 +1,3 @@
-import { EmailService } from './email.service';
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -24,7 +23,7 @@ private emailUrl = 'http://localhost:3000/posts'
   sendEmail(argparam) {
     return this.http.post<EmailData[]>(this.emailUrl, argparam).pipe(
       map(res => res),
-      catchError(this.errorHandler);
+      catchError(this.errorHandler),)
   }
 
   private errorHandler( error: Response) {
