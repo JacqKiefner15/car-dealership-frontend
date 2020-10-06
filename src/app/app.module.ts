@@ -1,6 +1,6 @@
+import { CommentFormComponent } from './comment-form/comment-form.component';
+
 import { EmailService } from './email.service';
-
-
 import { AuthorizationHeaderService } from './shared/services/authorization-header.service';
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { UserService } from './shared/services/user.service';
@@ -34,6 +34,7 @@ import { from } from 'rxjs';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,9 @@ import { from } from 'rxjs';
     LoginComponent,
     // CarComponent,
     AppointmentsComponent,
+    CommentFormComponent,
+    // FormsModule,
+    // ReactiveFormsModule
 
 
 

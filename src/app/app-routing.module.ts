@@ -1,5 +1,4 @@
-import { ContactFormComponent } from './contact-form/contact-form.component';
-
+import { CommentFormComponent } from './comment-form/comment-form.component';
 
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { LoginComponent } from './components/login/login.component';
@@ -36,8 +35,8 @@ const routes: Routes = [
   pathMatch: 'full'
 },
 
-{path: 'contact',
-component: ContactFormComponent,
+{path: 'comment',
+component: CommentFormComponent,
 pathMatch: 'full'
 }
 
