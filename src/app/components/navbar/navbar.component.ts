@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../../shared/services/models/user';
 import { UserService } from './../../shared/services/user.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -11,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
   currentUser: User
   private subs = new Subscription()
+  private router: Router
 
   constructor(
     private userService: UserService

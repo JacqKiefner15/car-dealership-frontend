@@ -1,38 +1,33 @@
-import { CommentFormComponent } from './comment-form/comment-form.component';
-
-import { EmailService } from './email.service';
-import { AuthorizationHeaderService } from './shared/services/authorization-header.service';
-import { LocalStorageService } from './shared/services/local-storage.service';
-import { UserService } from './shared/services/user.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CarService } from './shared/services/car.service';
-
-
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faAngleLeft, faAngleRight, faArrowRight,
+  faCircle, faEdit, faEye, faEyeSlash, faKey, faPen, faPlus,
+  faSearch, faSignInAlt, faSignOutAlt, faSpinner, faStar, faStarHalfAlt,
+  faTrashAlt, faUpload,
+  faUser, faUserPlus, faVideo
+} from '@fortawesome/free-solid-svg-icons';
+import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import {
-  faSpinner, faAngleLeft, faAngleRight, faPlus, faStar, faStarHalfAlt, faArrowRight, faUpload, faVideo,
-  faEdit, faPen, faTrashAlt, faSearch, faUser, faKey, faEye, faEyeSlash, faSignInAlt, faSignOutAlt, faUserPlus, faCircle
-}
-from '@fortawesome/free-solid-svg-icons';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { CommentFormComponent } from './comment-form/comment-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { SignupComponent } from './signup/signup.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
-import { AppointmentsComponent } from './appointments/appointments.component';
-import { from } from 'rxjs';
-
-
-
-
-
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { EmailService } from './email.service';
+import { AuthorizationHeaderService } from './shared/services/authorization-header.service';
+import { CarService } from './shared/services/car.service';
+import { LocalStorageService } from './shared/services/local-storage.service';
+import { UserService } from './shared/services/user.service';
+import { SignupComponent } from './signup/signup.component';
+import { CarsComponent } from './cars/cars.component';
 
 
 @NgModule({
@@ -43,16 +38,9 @@ import { from } from 'rxjs';
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    // CarComponent,
     AppointmentsComponent,
     CommentFormComponent,
-    // FormsModule,
-    // ReactiveFormsModule
-
-
-
-
-
+    CarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +50,8 @@ import { from } from 'rxjs';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
 
   ],
   providers: [

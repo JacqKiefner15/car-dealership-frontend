@@ -1,3 +1,4 @@
+import { CarsComponent } from './cars/cars.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -37,6 +38,11 @@ const routes: Routes = [
 
 {path: 'comment',
 component: CommentFormComponent,
+pathMatch: 'full'
+},
+
+{path: 'cars',
+component: CarsComponent,
 pathMatch: 'full'
 }
 

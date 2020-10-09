@@ -1,12 +1,11 @@
-import { EmailData } from './../shared/services/models/emailData';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EmailService } from './../email.service';
 import { User } from './../shared/services/models/user';
 import { UserService } from './../shared/services/user.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { MustMatch } from './must-match.validator';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,13 +20,16 @@ export class CommentFormComponent implements OnInit, OnDestroy {
   hasError = false
   errorMsg: string
   currentUser: User
+  msg: string = null
   private subs = new Subscription()
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private UserService: UserService,
-    private EmailService: EmailService
+    private EmailService: EmailService,
+    private snackBar: MatSnackBar
   ) { }
+
 
   ngOnInit(): void {
     this.createFormControls()
@@ -61,8 +63,8 @@ export class CommentFormComponent implements OnInit, OnDestroy {
     if (this.form.invalid) {
       this.hasError = true
       this.submitting = false
-
     }
+    else{
       const form = this.form.value
       const params = {
         email: form.email,
@@ -70,14 +72,19 @@ export class CommentFormComponent implements OnInit, OnDestroy {
         last_name: form.lastName,
         need: form.need,
         comment: form.comment
-
       }
+      this.snackBar.open('Your Message Has Been Sent!',
+       'Close',{duration: 3000});
       this.EmailService.sendEmail(params)
              .subscribe(
                () => {},
                err => console.log("this err",err)
              )
-           }
+             }
+            }
+
+
+
 
 
   // pasted in from contact-form component.ts

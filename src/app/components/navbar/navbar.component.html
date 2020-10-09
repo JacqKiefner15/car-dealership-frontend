@@ -1,115 +1,46 @@
-<nav *ngIf="currentUser" class="navbar navbar-expand navbar-dark">
-  <a class="navbar-brand" [routerLink]="['/home']">
-    <img src="/assets/images/shelly-demo-logo.png" height="150">
-  </a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auo">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <img class="left" src="/assets/images/shelly-demo-logo.png" height="100">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-              <a class="nav-link d-none d-lg-block" [routerLink]="['/home']">
-                  <button class="btn btn-outline-primary btn-flix-navbar">All Movies
-                      <fa-icon [icon]="['fas', 'arrow-right']" size="sm" class="ml-2 text-flix-red"></fa-icon>
-                  </button>
-              </a>
+            <a class="nav-link" [routerLink]="['/home']">Home
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
-          <li class="nav-item active icon d-block d-lg-none">
-              <a class="nav-link" [routerLink]="['/home']">
-                  <fa-stack>
-                      <fa-icon [icon]="['fas', 'circle']" class="text-flix-red" stackItemSize="2x"></fa-icon>
-                      <fa-icon [icon]="['fas', 'video']" class="text-white" stackItemSize="1x"></fa-icon>
-                  </fa-stack>
-              </a>
+          <li class="nav-item large active">
+            <a class="nav-link text-uppercase vl-red">
+            </a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="['/cars']">Find Your Ride!</a>
           </li>
-          <li class="nav-item mr-5 d-none d-lg-block">
-              <a class="nav-link" [routerLink]="['/movies/new']">
-                  <button class="btn btn-outline-primary btn-flix-navbar">Add New Movie
-                      <fa-icon [icon]="['fas', 'plus']" size="sm" class="ml-2 text-flix-red"></fa-icon>
-                  </button>
-              </a>
+          <li class="nav-item large active">
+            <a class="nav-link text-uppercase vl-red">
+            </a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/appointments']">Services</a>
           </li>
-          <li class="nav-item icon active d-block d-lg-none">
-              <a class="nav-link" [routerLink]="['/movies/new']">
-                  <fa-stack>
-                      <fa-icon [icon]="['fas', 'circle']" class="text-flix-red" stackItemSize="2x"></fa-icon>
-                      <fa-icon [icon]="['fas', 'plus']" class="text-white" stackItemSize="1x"></fa-icon>
-                  </fa-stack>
-              </a>
+          <li class="nav-item large active">
+            <a class="nav-link text-uppercase vl-red">
+            </a>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/comment']">Contact</a>
           </li>
-          <li class="nav-item active mt-2 d-none d-md-block">
-              <a class="nav-link text-uppercase">
-                  Hi, {{currentUser.nickname}}!
-              </a>
+          <li class="nav-item large active">
+            <a class="nav-link text-uppercase vl-red">
+            </a>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Employee Portal</a>
           </li>
-          <li class="nav-item small ml-small-10 active mt-2">
-              <a class="nav-link text-uppercase vl-red">
-              </a>
-          </li>
-          <li class="nav-item small active mt-2 w-small">
-              <a class="nav-link text-uppercase" (click)="logoutUser()">
-                  SIGN OUT
-              </a>
-          </li>
-      </ul>
-  </div>
-</nav>
-<nav *ngIf="!currentUser" class="navbar navbar-expand navbar-dark">
-  <a class="navbar-brand" [routerLink]="['/home']">
-      <img src="/assets/images/shelly-demo-logo.png"
-      height="120"/>
-  </a>
-  <ul class="navbar-nav ml-auto">
-      <li class="nav-item active mr-5 d-none d-lg-block">
-          <a class="nav-link" [routerLink]="['/home']">
-              <button class="btn btn-outline-primary btn-flix-navbar">Find Your Ride
-                  <fa-icon [icon]="['fas', 'arrow-right']" size="sm" class="ml-2 text-flix-red"></fa-icon>
-              </button>
-          </a>
-      </li>
-      <li class="nav-item icon active d-block d-lg-none">
-          <a class="nav-link" [routerLink]="['/home']">
-              <fa-stack>
-                  <fa-icon [icon]="['fas', 'circle']" class="text-flix-red" stackItemSize="2x"></fa-icon>
-                  <fa-icon [icon]="['fas', 'video']" class="text-white" stackItemSize="1x"></fa-icon>
-              </fa-stack>
-          </a>
-      </li>
-      <li class="nav-item small ml-small-20 active mt-2">
-          <a class="nav-link text-uppercase" [routerLink]="['/login']">
-              Sign In
-          </a>
-      </li>
-      <li class="nav-item small active mt-2">
-          <a class="nav-link text-uppercase vl-red">
-          </a>
-      </li>
-      <li class="nav-item small active mt-2">
-          <a class="nav-link text-uppercase" [routerLink]="['/signup']">
-              Sign up
-          </a>
-      </li>
-      <li class="nav-item small active mt-2">
-        <a class="nav-link text-uppercase vl-red">
-        </a>
-    </li>
-    <li class="nav-item small active mt-2">
-      <a class="nav-link text-uppercase" [routerLink]="['/appointment']">
-          Appointments
-      </a>
-  </li>
-  <li class="nav-item small active mt-2">
-    <a class="nav-link text-uppercase vl-red">
-    </a>
-  <li class="nav-item small active mt-2">
-    <a class="nav-link text-uppercase" [routerLink]="['/comment']">
-        Contact
-    </a>
-</li>
-<li class="nav-item small active mt-2">
-  <a class="nav-link text-uppercase vl-red">
-  </a>
-<li class="nav-item small active mt-2">
-  <a class="nav-link text-uppercase" [routerLink]="['/trade-in']">
-      Swap My Car!
-  </a>
-</li>
-  </ul>
-</nav>
+        </ul>
+      </div>
+    </div>
+  </nav>
