@@ -28,6 +28,7 @@ import { LocalStorageService } from './shared/services/local-storage.service';
 import { UserService } from './shared/services/user.service';
 import { SignupComponent } from './signup/signup.component';
 import { CarsComponent } from './cars/cars.component';
+import { EmployeePortalComponent } from './employee-portal/employee-portal.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { CarsComponent } from './cars/cars.component';
     AppointmentsComponent,
     CommentFormComponent,
     CarsComponent,
+    EmployeePortalComponent,
   ],
   imports: [
     BrowserModule,

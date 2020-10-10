@@ -1,3 +1,4 @@
+import { EmployeePortalComponent } from './employee-portal/employee-portal.component';
 import { CarsComponent } from './cars/cars.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 
@@ -36,9 +37,15 @@ const routes: Routes = [
   pathMatch: 'full'
 },
 
-{path: 'comment',
+{
+  path: 'comment',
 component: CommentFormComponent,
 pathMatch: 'full'
+},
+{
+  path: 'employee',
+  component: EmployeePortalComponent,
+  pathMatch: 'full'
 },
 
 {path: 'cars',
