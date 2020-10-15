@@ -29,6 +29,7 @@ import { UserService } from './shared/services/user.service';
 import { SignupComponent } from './signup/signup.component';
 import { CarsComponent } from './cars/cars.component';
 import { EmployeePortalComponent } from './employee-portal/employee-portal.component';
+import { SingleCarComponent } from './single-car/single-car.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { EmployeePortalComponent } from './employee-portal/employee-portal.compo
     CommentFormComponent,
     CarsComponent,
     EmployeePortalComponent,
+    SingleCarComponent,
   ],
   imports: [
     BrowserModule,

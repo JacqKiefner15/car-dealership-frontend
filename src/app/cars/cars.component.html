@@ -1,20 +1,25 @@
-<h1>cars</h1>
+link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<ul *ngIf="cars">
-  <li *ngFor="let car of cars">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{car.carImg}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          <p class="name">{{ car.carMake }}</p>
-          <p class="country">{{ car.carModel}}</p>
-          <p class="country">{{ car.carYear}}</p>
-          <p class="country">{{ car.carPrice}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+<style>
+    .card-custom {
+        max-width: 140px;
+    }
+    .top {
+      margin-top: 100px;
+    }
+</style>
+
+<div class="container top" *ngIf="cars">
+    <div class="row mt-5 justify-content-left" *ngFor="let car of cars">
+        <div class="card" style="width: 35rem;">
+          <img class="card-img-top" src="{{car.carImg}}" alt="Card image cap">
+          <div class="card-body">
+            <h1 class="card-title">{{car.carYear}} {{car.carMake}} {{car.carModel}}</h1>
+            <h2 class="card-text">${{car.carPrice}}</h2>
+            <a href="#" class="btn btn-primary">Get the deets</a>
+          </div>
+          </div>
     </div>
+</div>
 
 
-  </li>
-</ul>
