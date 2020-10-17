@@ -9,7 +9,7 @@ link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/
     }
 </style>
 
-<div class="container top" *ngIf="cars">
+<div class="container top" *ngIf="cars" (click)="routeToViewCar(car.id)">
     <div class="row mt-5 justify-content-left" *ngFor="let car of cars">
         <div class="card" style="width: 35rem;">
           <img class="card-img-top" src="{{car.carImg}}" alt="Card image cap">

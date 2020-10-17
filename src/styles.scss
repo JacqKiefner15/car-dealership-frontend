@@ -5,7 +5,7 @@
   @import "~bootstrap/scss/bootstrap";
 
   // Importing Needed Google Fonts
-  @import url("https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Montserrat&family=Raleway:ital,wght@0,500;0,700;1,500&display=swap");
+
 
   @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 
@@ -14,11 +14,11 @@
 
 
   // Notes on font usage
-  // font-family: 'Bitter', serif;
+
   // available font-weights: 700/bold
-  // font-family: 'Montserrat', sans-serif;
+  // font-family: 'Montserrat', oxygens-serif;
   // available font-weights: 400/regular
-  // font-family: 'Raleway', sans-serif;
+  // font-family: 'oxygen', oxygens-serif;
   // available font-weights: 500 italic, 500, 700/bold
 
   // Overiding Boostrap Card Styles
@@ -29,7 +29,7 @@
   }
   // Overiding Bootstrap Button Styles
   .btn-primary {
-    font-family: "Raleway";
+
     font-weight: bold;
     font-size: 16px;
     text-transform: uppercase;
@@ -91,8 +91,8 @@
   }
 
   html, body { height: 100%; }
-  body { margin: 0; font-family: "Oxygen", sans-serif; }
+  body { margin: 0;}
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: "Oxygen", sans-serif; }
+body { margin: 0;}
