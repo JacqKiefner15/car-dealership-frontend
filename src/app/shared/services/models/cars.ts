@@ -9,6 +9,7 @@ export class Car {
   carColor?: string
   carDescription?: string
   carWarrantyType?: string
+  carDown?: string
 
   constructor ({
       id = null,
@@ -19,7 +20,8 @@ export class Car {
       carImg = '',
       carColor = '',
       carDescription = '',
-      carWarrantyType = ''
+      carWarrantyType = '',
+      carDown = ''
   }) {
       Object.assign(this)
       this.id = id,
@@ -31,6 +33,7 @@ export class Car {
       this.carColor = carColor,
       this.carDescription = carDescription,
       this.carWarrantyType = carWarrantyType
+      this.carDown = carDown
   }
 
 }
