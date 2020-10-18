@@ -1,3 +1,4 @@
+import { SingleCarComponent } from './single-car/single-car.component';
 import { EmployeePortalComponent } from './employee-portal/employee-portal.component';
 import { CarsComponent } from './cars/cars.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';
@@ -46,17 +47,19 @@ pathMatch: 'full'
   path: 'employee',
   component: EmployeePortalComponent,
   pathMatch: 'full'
-},
+}]
 
-{path: 'cars',
-component: CarsComponent,
-pathMatch: 'full'
+const child: Routes = [
+{path: 'cars', component: CarsComponent},
+{
+  path: 'cars/:id',
+  component: SingleCarComponent
 }
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  RouterModule.forChild(child)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

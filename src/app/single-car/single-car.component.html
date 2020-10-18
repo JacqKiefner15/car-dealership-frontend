@@ -1,1 +1,69 @@
-<p>single-car works!</p>
+<br>
+<br>
+<br>
+
+<div class='card'
+     *ngIf='car'>
+  <div class='card-header'>
+    <h1>
+    {{car.carYear}} {{car.carMake}} {{car.carModel}}
+  </h1>
+  </div>
+  <div class='card-body'>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6">
+            <div class='row'>
+              <div class='col-md-8'>
+                <div class='row'>
+                  <div class='col-md-4'>Year:</div>
+                  <div class='col-md-8'>{{car.carYear}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Make:</div>
+                  <div class='col-md-8'>{{car.carMake}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Model:</div>
+                  <div class='col-md-8'>{{car.carModel}}</div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-md-4'>Color:</div>
+                  <div class='col-md-8'>{{car.id}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Down:</div>
+                  <div class='col-md-8'>{{car.carModel}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Warranty:</div>
+                  <div class='col-md-8'>{{car.carYear}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Price:</div>
+                  <div class='col-md-8'>{{car.carPrice}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Price:</div>
+                  <div class='col-md-8'>{{car.carPrice}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-4'>Price:</div>
+                  <div class='col-md-8'>{{car.carPrice}}</div>
+                </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <img class="card-img-top" src="{{car.carImg}}" alt="Card image cap">
+
+          </div>
+      </div>
+    </div>
+
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-primary" [routerLink]="['/cars']">Let's Browse Some More</a>
+    </div>
+  </div>

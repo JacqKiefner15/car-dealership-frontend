@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
       if (incomingCars) {
         this.cars = incomingCars
       }
-    debugger
     }, error => {
       if (error) {
         console.log(error)

@@ -11,15 +11,18 @@ link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/
 
 <div class="container top" *ngIf="cars" (click)="routeToViewCar(car.id)">
     <div class="row mt-5 justify-content-left" *ngFor="let car of cars">
-        <div class="card" style="width: 35rem;">
+        <div class="card" style="width: 25rem;">
           <img class="card-img-top" src="{{car.carImg}}" alt="Card image cap">
           <div class="card-body">
             <h1 class="card-title">{{car.carYear}} {{car.carMake}} {{car.carModel}}</h1>
             <h2 class="card-text">${{car.carPrice}}</h2>
-            <a href="#" class="btn btn-primary">Get the deets</a>
+            <!-- <a href="#" class="btn btn-primary">Get the deets</a> -->
+            <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Get the deets</a>
           </div>
           </div>
     </div>
+
 </div>
+
 
 

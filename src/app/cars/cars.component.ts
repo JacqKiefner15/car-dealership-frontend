@@ -10,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
+  
 @Input() car: Car
 carImg: string
   cars = CARS;
