@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'codelabs-movie-frontend'`, () => {
+  it(`should have as title 'shelly-bluebook-dealership'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('codelabs-movie-frontend');
+    expect(app.title).toEqual('shelly-bluebook-dealership');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('codelabs-movie-frontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('shelly-bluebook-dealership app is running!');
   });
 });
